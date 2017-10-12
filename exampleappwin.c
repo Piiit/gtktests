@@ -21,6 +21,7 @@ typedef struct _ExampleAppWindowPrivate ExampleAppWindowPrivate;
 struct _ExampleAppWindowPrivate
 {
   GtkWidget *scrolledwindow;
+  GtkWidget *appmenu;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE(ExampleAppWindow, example_app_window, GTK_TYPE_APPLICATION_WINDOW);
@@ -34,9 +35,9 @@ example_app_window_init (ExampleAppWindow *win)
 static void
 example_app_window_class_init (ExampleAppWindowClass *class)
 {
-	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (class),
-												 "/org/gtk/exampleapp/xreader.ui");
+	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (class), "/org/gtk/exampleapp/xreader.ui");
 	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ExampleAppWindow, scrolledwindow);
+	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ExampleAppWindow, appmenu);
 }
 
 ExampleAppWindow *
